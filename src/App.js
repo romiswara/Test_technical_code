@@ -17,7 +17,8 @@ function App() {
     let temp = ``
     let arr = currentValue.split("")
     let total = arr.length
-
+    console.log("arr",arr)
+    console.log("arr total",total)
     for (let a = 0; a < total; a++) {
       if(arr[a]==0){
         temp = temp + `0`
@@ -26,7 +27,7 @@ function App() {
           temp = arr[a]
         } else {
           if(a>1){
-            temp = temp + `${arr[a]-1}`
+            temp = temp + `${arr[a-1]}`
           }
         }
       }
@@ -37,6 +38,7 @@ function App() {
         }
       }
     }
+    console.log("temp",temp)
     let ah = temp.split(" ")
     console.log("ah", ah)
     setResultSegitiga(ah)
