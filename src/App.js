@@ -6,16 +6,29 @@ function App() {
   const [resultPrima, setResultPrima] = useState('')
   const [currentValue, setCurrentValue] = useState("")
 
+  const clearData = () => {
+    setResultSegitiga('')
+    setResultPrima('')
+    setResult('')
+  }
+
   const convertSegitiga = () => {
+    clearData()
     let temp = ``
     let arr = currentValue.split("")
     let total = arr.length
 
     for (let a = 0; a < total; a++) {
-      if (temp == "") {
-        temp = arr[a]
+      if(arr[a]==0){
+        temp = temp + `0`
       } else {
-        temp = temp + `${arr[a]}`
+        if (temp == "") {
+          temp = arr[a]
+        } else {
+          if(a>1){
+            temp = temp + `${arr[a]-1}`
+          }
+        }
       }
       for (let b = 0; b < a; b++) {
         temp = temp + "0"
@@ -30,6 +43,7 @@ function App() {
   }
 
   const convertGanjil = () => {
+    clearData()
     let temp = ""
     for (let a = 0; a < currentValue; a++) {
       if (a % 2 != 0) {
@@ -40,6 +54,7 @@ function App() {
   }
 
   const convertPrima = () => {
+    clearData()
     let temp = ""
     for (let a = 0; a < currentValue; a++) {
       let val = a
